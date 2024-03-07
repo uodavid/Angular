@@ -1,0 +1,53 @@
+<div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="handleSubmit()">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label>Nombres</label>
+                    <input type="text" formControlName="nombres" class="form-control" />
+                    <div *ngIf="contactForm.controls['nombres'].invalid || contactForm.controls['nombres'].dirty || contactForm.controls['nombres'].touched">
+                        <div class="text-danger" *ngIf="contactForm.controls['nombres'].errors?.['required']">Campo Obligatorio</div>
+                        <div class="text-danger" *ngIf="contactForm.controls['nombres'].errors?.['minlength']">Mínimo {{contactForm.controls['nombres'].errors?.['minlength'].requiredLength}} Carácteres</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label>Apellidos</label>
+                    <input type="text" formControlName="apellidos" class="form-control" />
+                    <div *ngIf="contactForm.controls['apellidos'].invalid || contactForm.controls['apellidos'].dirty || contactForm.controls['apellidos'].touched">
+                        <div class="text-danger" *ngIf="contactForm.controls['apellidos'].errors?.['required']">Campo Obligatorio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label>Correo</label>
+                    <input type="email" formControlName="correo" class="form-control" />
+                    <div *ngIf="contactForm.controls['correo'].invalid || contactForm.controls['correo'].dirty || contactForm.controls['correo'].touched">
+                        <div class="text-danger" *ngIf="contactForm.controls['correo'].errors?.['required']">Campo Obligatorio</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label>Telefono</label>
+                    <input type="text" formControlName="telefono" class="form-control" />
+                    <div *ngIf="contactForm.controls['telefono'].invalid || contactForm.controls['telefono'].dirty || contactForm.controls['telefono'].touched">
+                        <div class="text-danger" *ngIf="contactForm.controls['telefono'].errors?.['required']">Campo Obligatorio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+        </div>
+    </form>
+
+</div>

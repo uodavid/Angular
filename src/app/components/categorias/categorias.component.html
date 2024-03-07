@@ -1,0 +1,10 @@
+<p>categorias works!</p>
+<button class="btn btn-success" type="button" (click)="handleChange()">Cambiar argumento de entrada</button>
+
+<!-- Componente hijo -->
+<app-lifecycle
+    [nombres]="arg"
+    apellidos="Uribe"
+    (datoAlPadre)="leerDatodelHijo($event)"
+
+></app-lifecycle>
